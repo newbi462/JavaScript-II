@@ -79,9 +79,18 @@ function contains(item, list, cb) {
 console.log(contains("Notebook",items,found => found));
 
 /* STRETCH PROBLEM */
+let testarray = [1, 2, 2, 3, 3, 3];
+let noduplicateArray = [];
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  cb = new Set(array); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+  return Array.from(cb); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 }
+
+console.log(removeDuplicates(testarray, noduplicateArray));
+console.log(testarray);
+console.log(noduplicateArray);
