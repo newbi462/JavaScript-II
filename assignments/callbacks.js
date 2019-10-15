@@ -80,7 +80,6 @@ console.log(contains("Notebook",items,found => found));
 
 /* STRETCH PROBLEM */
 let testarray = [1, 2, 2, 3, 3, 3];
-let noduplicateArray = [];
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
@@ -91,6 +90,8 @@ function removeDuplicates(array, cb) {
   return Array.from(cb); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 }
 
-console.log(removeDuplicates(testarray, noduplicateArray));
+console.log(removeDuplicates(testarray, noduplicateArray => noduplicateArray));
 console.log(testarray);
+
+let noduplicateArray = removeDuplicates(testarray, noduplicateArray => noduplicateArray);
 console.log(noduplicateArray);
