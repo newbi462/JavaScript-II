@@ -14,10 +14,12 @@ console.log(closureOfYourOwnCreation());
 
 
 // ==== Challenge 2: Implement a "counter maker" function ====
+let count = 0;
 const counterMaker = () => {
   // IMPLEMENTATION OF counterMaker:
   // 1- Declare a `count` variable with a value of 0. We will be mutating it, so declare it using `let`!
-  let count = 0;
+  //let count = 0; // I have to put this out side the funtion because of scope but instrutions say here?
+
   // 2- Declare a function `counter`. It should increment and return `count`.
   function counter() {
     count = count + 1;
@@ -25,16 +27,20 @@ const counterMaker = () => {
   };
   //      NOTE: This `counter` function, being nested inside `counterMaker`,
   //      "closes over" the `count` variable. It can "see" it in the parent scope!
-  // 3- Return the `counter` function.
 
+  // 3- Return the `counter` function.
   return counter();
 };
+
 // Example usage: const myCounter = counterMaker();
-const myCounter = counterMaker();
+//const myCounter = counterMaker();
+
 // myCounter(); // 1
-console.log(myCounter);
+console.log(counterMaker());
+
 // myCounter(); // 2
-console.log(myCounter);
+console.log(counterMaker());
+//console.log(myCounter);// wont let me call it as a funtion?
 
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
