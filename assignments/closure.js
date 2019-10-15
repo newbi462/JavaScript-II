@@ -42,9 +42,40 @@ console.log(counterMaker());
 console.log(counterMaker());
 //console.log(myCounter);// wont let me call it as a funtion?
 
+
+
+
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
 // will refuse to go over the limit, and start back at 1.
+let count2 = 0;
+const counterMaker2 = () => {
+  function counter() {
+    if (count2 < 10) {
+      count2 = count2 + 1;
+    }
+    else {
+      count2 = 1;
+    }
+
+    return count2;
+  };
+  return counter();
+};
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+console.log(counterMaker2());
+
+
+
 
 // ==== Challenge 4: Create a counter function with an object that can increment and decrement ====
 const counterFactory = () => {
