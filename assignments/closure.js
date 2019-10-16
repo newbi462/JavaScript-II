@@ -3,9 +3,12 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
-let name = "Russ";
 function closureOfYourOwnCreation() {
-  return "my name is " + name;
+  let name = "Russ";
+  function greetme() {
+    return "my name is " + name;
+  };
+  return greetme();
 };
 console.log(closureOfYourOwnCreation());
 
@@ -19,9 +22,9 @@ let counterMaker = () => {
   // IMPLEMENTATION OF counterMaker:
   // 1- Declare a `count` variable with a value of 0. We will be mutating it, so declare it using `let`!
   let count = 0; // I have to put this out side the funtion because of scope but instrutions say here?
-return function() {
-  return ++count;
-}
+  return function() {
+    return ++count;
+  }
   // 2- Declare a function `counter`. It should increment and return `count`.
 //  function counter() {
 //    count = count + 1;
@@ -51,45 +54,46 @@ console.log(myCounter());// wont let me call it as a funtion?
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
 // will refuse to go over the limit, and start back at 1.
-let count2 = 0;
+
 const counterMaker2 = () => {
-  function counter() {
+  let count2 = 0;
+  return function() {
     if (count2 < 10) {
       count2 = count2 + 1;
     }
     else {
       count2 = 1;
     }
-
     return count2;
   };
-  return counter();
 };
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
-console.log(counterMaker2());
+
+const myCounter2 = counterMaker2();
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
+console.log(myCounter2());
 
 
 
 
 // ==== Challenge 4: Create a counter function with an object that can increment and decrement ====
-let count3 = 0;
-const counterFactory = () => {
 
+const counterFactory = () => {
+  let count3 = 0;
   return {
-    increment: function () {
-      return count3 + 1
+    increment: function() {
+      return count3 + 1;
     },
-    decrement: function () {
-      return count3 - 1
+    decrement: function() {
+      return count3 - 1;
     },
   };
 
